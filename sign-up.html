@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlavorShare - Sign Up</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/global.css">
+</head>
+<body class="bg-[#F9F6F1] text-gray-800">
+
+  <!-- HEADER -->
+  <header class="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between shadow-sm">
+    <h1 class="text-2xl font-bold text-[#E4572E]">FlavorShare</h1>
+    <nav>
+      <ul class="flex gap-6 text-sm font-medium">
+        <li><a href="landing-page.html" class="hover:text-[#E4572E]">Home</a></li>
+        <li><a href="#" class="hover:text-[#E4572E]">Explore</a></li>
+        <li><a href="#" class="hover:text-[#E4572E]">Categories</a></li>
+        <li><a href="sign-in.html" class="hover:text-[#E4572E]">Sign In</a></li>
+      </ul>
+    </nav>
+    <a href="sign-in.html"
+       class="bg-[#E4572E] text-white px-4 py-2 rounded-full hover:bg-[#d04b27] transition text-sm font-medium shadow">
+      + Upload Recipe
+    </a>
+  </header>
+
+  <!-- SIGN UP FORM -->
+  <main class="flex justify-center items-center min-h-[calc(100vh-80px)] px-4">
+    <div class="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
+      <h2 class="text-2xl font-bold text-[#E4572E] mb-2 text-center">Sign Up</h2>
+      <p class="text-sm text-gray-600 text-center mb-6">
+        Already have an account?
+        <a href="sign-in.html" class="text-[#E4572E] hover:underline">Sign In</a>
+      </p>
+
+      <form class="space-y-4">
+        <div class="grid grid-cols-2 gap-3">
+          <input type="text" placeholder="First Name"
+                 class="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E4572E]" required>
+          <input type="text" placeholder="Last Name"
+                 class="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E4572E]" required>
+        </div>
+
+        <input type="email" placeholder="Email Address"
+               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E4572E]" required>
+
+        <input type="password" placeholder="Password"
+               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#E4572E]" required>
+
+        <button type="submit"
+                class="w-full bg-[#E4572E] text-white py-2 rounded-lg hover:bg-[#d04b27] transition">
+          Sign Up
+        </button>
+      </form>
+
+      <a href="#" class="block text-center text-sm text-gray-600 mt-4 hover:text-[#E4572E]">
+        Continue without signing in
+      </a>
+    </div>
+  </main>
+
+</body>
+</html>

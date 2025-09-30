@@ -1,0 +1,144 @@
+/* global.css - FlavorShare stable styles (cards restored & robust) */
+
+/* --------- Color variables --------- */
+:root{
+  --primary: #E4572E;
+  --primary-600: #d04b27;
+  --accent: #F3A712;
+  --footer-bg: #2D2A26;
+  --muted: #6b7280;
+  --bg-cream: #FFF8F0;
+}
+
+/* --------- Base / Typography --------- */
+*{box-sizing:border-box}
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #111827;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Keep links inheriting color by default and add gentle transition */
+a{ color:inherit; transition: color .18s ease }
+
+/* --------- Header --------- */
+header{ background-color:#fff }
+
+/* --------- Buttons --------- */
+.btn-primary{
+  background-color:var(--primary);
+  color:#fff;
+  border-radius:9999px;
+  padding:.5rem 1rem;
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  transition: background-color .18s ease, transform .06s ease;
+  box-shadow: 0 6px 18px rgba(228,87,46,0.10);
+  border:none;
+  cursor:pointer;
+}
+.btn-primary:hover,
+.btn-primary:focus{ background-color:var(--primary-600); transform: translateY(-1px) }
+
+/* pill */
+.pill{
+  padding:.45rem 1rem;
+  border-radius:9999px;
+  font-weight:500;
+  display:inline-block;
+}
+
+/* --------- Forms & Inputs (reusable) --------- */
+.input-field,
+input[type="text"], input[type="email"], input[type="password"], textarea, select{
+  border-radius:.75rem;
+  border:1px solid #e5e7eb;
+  padding:.6rem .85rem;
+  font-size:1rem;
+  width:100%;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.input-field:focus,
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus{
+  outline:none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 6px rgba(228,87,46,0.08);
+}
+
+/* search input special */
+.search-input{
+  border-radius:9999px;
+  padding-left:1.25rem;
+  padding-right:3rem;
+  height:48px;
+}
+
+/* --------- Shadows & Rounding --------- */
+.shadow-soft{ box-shadow: 0 10px 30px rgba(16,24,40,0.06) }
+.rounded-xl-soft{ border-radius:1rem }
+
+/* --------- Card (robust) ---------
+   We define a sturdy card layout with explicit heights so colored
+   top band never collapses and the white info panel is consistent.
+*/
+.card {
+  background: #ffffff;
+  border-radius: 1rem;
+  overflow: hidden;
+  display:flex;
+  flex-direction:column;
+  min-height: 320px;      /* ensures consistent height */
+  height: 100%;
+}
+
+/* colored top area (image placeholder or color block) */
+.card-top{
+  height: 180px;          /* prominent colored block */
+  background-size: cover;
+  background-position: center;
+  flex: 0 0 auto;
+}
+
+/* bottom info area */
+.card-body{
+  padding: 1.125rem;      /* same feel as Figma */
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  flex:1 1 auto;
+}
+
+/* small metadata row at bottom of card info */
+.card-meta{
+  display:flex;
+  align-items:center;
+  gap:1.25rem;
+  color: var(--muted);
+  font-size:.95rem;
+}
+
+/* small icon spacing */
+.card-meta i{ margin-right:.45rem; color: #374151 }
+
+/* star color */
+.card-meta .star{ color: #FBBF24 }
+
+/* utility for hero elevation if needed */
+.hero-elevate{ box-shadow: 0 10px 30px rgba(16,24,40,0.06) }
+
+/* --------- Animations --------- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fadeInUp { animation: fadeInUp .36s ease both }
+
+/* --------- Responsive tweaks for larger spacing like Figma ----- */
+@media(min-width:1280px){
+  .max-inner-width { max-width: 1200px; margin: 0 auto; }
+}
