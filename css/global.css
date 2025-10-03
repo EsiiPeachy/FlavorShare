@@ -8,6 +8,13 @@
   --footer-bg: #2D2A26;
   --muted: #6b7280;
   --bg-cream: #FFF8F0;
+
+  /* modal-specific reuses brand colors */
+  --modal-icon-bg: var(--primary);
+  --modal-cta-bg: var(--primary);
+  --modal-cta-hover: var(--primary-600);
+  --modal-title: var(--primary);
+  --modal-text: #374151;
 }
 
 /* --------- Base / Typography --------- */
@@ -82,38 +89,29 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 .shadow-soft{ box-shadow: 0 10px 30px rgba(16,24,40,0.06) }
 .rounded-xl-soft{ border-radius:1rem }
 
-/* --------- Card (robust) ---------
-   We define a sturdy card layout with explicit heights so colored
-   top band never collapses and the white info panel is consistent.
-*/
+/* --------- Card (robust) --------- */
 .card {
   background: #ffffff;
   border-radius: 1rem;
   overflow: hidden;
   display:flex;
   flex-direction:column;
-  min-height: 320px;      /* ensures consistent height */
+  min-height: 320px;
   height: 100%;
 }
-
-/* colored top area (image placeholder or color block) */
 .card-top{
-  height: 180px;          /* prominent colored block */
+  height: 180px;
   background-size: cover;
   background-position: center;
   flex: 0 0 auto;
 }
-
-/* bottom info area */
 .card-body{
-  padding: 1.125rem;      /* same feel as Figma */
+  padding: 1.125rem;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
   flex:1 1 auto;
 }
-
-/* small metadata row at bottom of card info */
 .card-meta{
   display:flex;
   align-items:center;
@@ -121,14 +119,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   color: var(--muted);
   font-size:.95rem;
 }
-
-/* small icon spacing */
 .card-meta i{ margin-right:.45rem; color: #374151 }
-
-/* star color */
 .card-meta .star{ color: #FBBF24 }
-
-/* utility for hero elevation if needed */
 .hero-elevate{ box-shadow: 0 10px 30px rgba(16,24,40,0.06) }
 
 /* --------- Animations --------- */
@@ -138,7 +130,147 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 .fadeInUp { animation: fadeInUp .36s ease both }
 
-/* --------- Responsive tweaks for larger spacing like Figma ----- */
+/* --------- Responsive tweaks --------- */
 @media(min-width:1280px){
   .max-inner-width { max-width: 1200px; margin: 0 auto; }
+}
+
+/* --------- Modal (brand-correct, layout-fixed) --------- */
+
+/* overlay (hidden by default) */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 32px; /* small breathing space on mobile */
+}
+
+/* show state */
+.modal-overlay.active {
+  display: flex;
+}
+
+/* modal box */
+.modal-content {
+  background: var(--bg-cream); /* brand cream background so modal feels part of site */
+  border-radius: 16px;
+  max-width: 720px;
+  width: 100%;
+  padding: 36px 40px;
+  box-shadow: 0 10px 35px rgba(16,24,40,0.15);
+  position: relative;
+  animation: fadeIn 0.28s ease-out;
+  text-align: center;
+}
+
+/* close button */
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+/* title and subtitle */
+.modal-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--modal-title);
+  margin: 0 0 8px;
+  line-height: 1.05;
+  text-align: center;
+}
+
+.modal-subtitle {
+  font-size: 15px;
+  color: #6b7280;
+  margin: 0 0 20px;
+  text-align: center;
+  max-width: 84%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Center the whole feature list block in the modal */
+.modal-features {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* keep li contents left-aligned */
+  margin: 20px auto;         /* auto centers the block horizontally */
+  width: fit-content;        /* shrink-wrap to content width */
+  gap: 12px;
+}
+
+/* Row layout: icon + text */
+.modal-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: var(--modal-text);
+  text-align: left;          /* keep natural left alignment */
+}
+
+/* checkmark circle (brand color) */
+.modal-features li::before {
+  content: "\2713"; /* checkmark */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #fff;
+  background: var(--modal-icon-bg);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  box-shadow: 0 3px 8px rgba(16,24,40,0.08);
+}
+
+/* CTA */
+.modal-cta {
+  display: inline-block;
+  margin: 26px auto 8px;
+  min-width: 260px;
+  background: var(--modal-cta-bg);
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 9999px; /* fully rounded */
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.08s;
+  box-shadow: 0 8px 20px rgba(228,87,46,0.12);
+}
+.modal-cta:hover {
+  background: var(--modal-cta-hover);
+  transform: translateY(-1px);
+}
+
+/* small footer text */
+.modal-footer {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #7f7f7f;
+  text-align: center;
+  max-width: 72%;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.3;
+}
+
+/* animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
