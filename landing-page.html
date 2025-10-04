@@ -18,23 +18,8 @@
 
 <body class="bg-[#FFF8F0] font-sans text-gray-800">
 
-  <!-- NAV -->
-  <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="max-inner-width px-6 py-4 flex items-center justify-between">
-      <h1 class="text-xl font-bold text-[#E4572E]">FlavorShare</h1>
-
-      <nav class="hidden md:flex items-center gap-8 text-gray-600 font-medium">
-        <a href="landing-page.html" class="hover:text-[#E4572E]">Home</a>
-        <a href="#" class="hover:text-[#E4572E]">Explore</a>
-        <a href="#" class="hover:text-[#E4572E]">Categories</a>
-        <a href="sign-in.html" class="hover:text-[#E4572E]">Sign in</a>
-      </nav>
-
-      <a href="#" id="openModalBtn" class="btn-primary text-sm font-medium shadow-soft">
-        + Upload Recipe
-      </a>
-    </div>
-  </header>
+  <!-- HEADER PLACEHOLDER -->
+  <div id="header"></div>
 
   <!-- HERO -->
   <section class="bg-gradient-to-b from-[#E4572E] to-[#F3A712] text-white text-center py-16">
@@ -73,57 +58,9 @@
   <section class="max-inner-width px-6 py-12 mx-auto">
     <h3 class="text-center text-2xl font-bold text-gray-800 mb-8">Trending Recipes</h3>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Card 1 -->
-      <article class="card rounded-xl-soft shadow-soft hover:shadow-lg fadeInUp">
-        <div class="card-top" style="background-color: var(--primary)"></div>
-        <div class="card-body">
-          <div>
-            <h4 class="font-bold text-gray-900">Creamy Carbonara</h4>
-            <p class="text-muted text-sm mt-1">Maria Romano</p>
-          </div>
-
-          <div class="card-meta">
-            <span class="flex items-center gap-2"><i class="fa-solid fa-star star"></i>4.9</span>
-            <span class="flex items-center gap-2"><i class="fa-solid fa-comment"></i>234</span>
-            <span class="flex items-center gap-2"><i class="fa-solid fa-clock"></i>25 min</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Card 2 -->
-      <article class="card rounded-xl-soft shadow-soft hover:shadow-lg fadeInUp">
-        <div class="card-top" style="background-color: var(--accent)"></div>
-        <div class="card-body">
-          <div>
-            <h4 class="font-bold text-gray-900">Rainbow Cupcakes</h4>
-            <p class="text-muted text-sm mt-1">Emma Baker</p>
-          </div>
-
-          <div class="card-meta">
-            <span class="flex items-center gap-2"><i class="fa-solid fa-star star"></i>4.9</span>
-            <span class="flex items-center gap-2"><i class="fa-solid fa-comment"></i>234</span>
-            <span class="flex items-center gap-2"><i class="fa-solid fa-clock"></i>25 min</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Card 3 -->
-      <article class="card rounded-xl-soft shadow-soft hover:shadow-lg fadeInUp">
-        <div class="card-top" style="background-color: #10B981"></div>
-        <div class="card-body">
-          <div>
-            <h4 class="font-bold text-gray-900">Thai Green Curry</h4>
-            <p class="text-muted text-sm mt-1">Alex Chen</p>
-          </div>
-
-          <div class="card-meta">
-            <span class="flex items-center gap-2"><i class="fa-solid fa-star star"></i>4.9</span>
-            <span class="flex items-center gap-2"><i class="fa-solid fa-comment"></i>234</span>
-            <span class="flex items-center gap-2"><i class="fa-solid fa-clock"></i>25 min</span>
-          </div>
-        </div>
-      </article>
+    <!-- Card container -->
+    <div id="recipeCards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Cards will be injected here -->
     </div>
   </section>
 
@@ -138,6 +75,9 @@
   <div id="modalContainer"></div>
 
   <script src="js/modal.js"></script>
+  <script src="js/recipe-modal.js"></script>
+  <script src="js/landing-page.js"></script>
+  <script src="js/header.js"></script>
 
 </body>
 
