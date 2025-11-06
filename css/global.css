@@ -274,3 +274,64 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   from { opacity: 0; transform: translateY(-8px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* Ensure header right section doesn’t clip or collapse */
+header .flex.items-center.gap-4.flex-nowrap {
+  flex-wrap: nowrap !important;
+  overflow: visible !important;
+  min-width: max-content !important;
+}
+
+/* Prevent the user pill from collapsing or hiding */
+header .group {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  overflow: visible !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* User pill button styling (stable visual + layout fix) */
+header .group > button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 9999px;
+  background: #FFEFE8 !important;
+  border: 1px solid rgba(228, 87, 46, 0.4);
+  color: #374151;
+  font-weight: 500;
+  min-width: fit-content !important;
+  white-space: nowrap !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Hover state */
+header .group > button:hover {
+  background: #FFDCD0 !important;
+}
+
+/* Username and icons inside pill */
+header .group > button span#userName {
+  color: #374151 !important;
+  font-weight: 600;
+}
+
+header .group > button svg {
+  flex-shrink: 0;
+  stroke: currentColor;
+}
+
+/* Dropdown menu fix (ensures clickable + visible) */
+header .group .absolute {
+  pointer-events: auto !important;
+  z-index: 1000 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}

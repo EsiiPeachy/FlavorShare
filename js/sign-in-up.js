@@ -90,19 +90,20 @@ document.addEventListener("DOMContentLoaded", () => {
     signUpForm.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      const username = document.getElementById("signup-username").value.trim();
+      const firstName = document.getElementById("signup-first").value.trim();
+      const lastName = document.getElementById("signup-last").value.trim();
       const email = document.getElementById("signup-email").value.trim();
       const password = document.getElementById("signup-password").value.trim();
 
-      if (!username || !email || !password) {
+      if (!firstName || !lastName || !email || !password) {
         alert("Please fill in all fields.");
         return;
       }
 
+      const username = `${firstName} ${lastName}`;
       const user = { email, username };
-      localStorage.setItem("loggedInUser", JSON.stringify(user));
 
-      // ✅ Redirect to landing page
+      localStorage.setItem("loggedInUser", JSON.stringify(user));
       window.location.href = "landing-page.html";
     });
   }
